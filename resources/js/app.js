@@ -1,9 +1,23 @@
-require("./bootstrap");
+import axios from "axios";
+window.axios = axios;
+window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 
-window.Vue = require("vue").default;
+try {
+    window.Popper = require("popper.js").default;
+    window.$ = window.jQuery = require("jquery");
+
+    require("bootstrap");
+} catch (e) {}
+
+import Vue from "vue";
+import VueRouter from "vue-router";
+import routes from "./router";
+
+Vue.use(VueRouter);
 
 Vue.component("navigation", require("./components/Navigation.vue").default);
 
 const app = new Vue({
-    el: "#parsinta"
+    el: "#parsinta",
+    router: new VueRouter(routes)
 });
