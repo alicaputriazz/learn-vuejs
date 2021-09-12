@@ -36,6 +36,14 @@
                             >Contact</router-link
                         >
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Notes
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <router-link :to="{ name: 'notes.create' }" class="dropdown-item">Create new note</router-link>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -44,8 +52,6 @@
 
 <script>
 export default {
-    mounted() {
-        console.log("Component mounted.");
-    }
+    name: 'Navigation',
 };
 </script>
