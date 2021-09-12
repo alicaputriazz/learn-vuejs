@@ -12,8 +12,10 @@ try {
 import Vue from "vue";
 import VueRouter from "vue-router";
 import routes from "./router";
+import Toasted from "vue-toasted";
 
 Vue.use(VueRouter);
+Vue.use(Toasted);
 
 Vue.component("navigation", require("./components/Navigation.vue").default);
 
