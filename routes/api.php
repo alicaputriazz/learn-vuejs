@@ -10,6 +10,8 @@ use App\Http\Controllers\Notes\SubjectController as SubjectController;
 
 Route::prefix('notes')->group(function(){
     Route::post('/create-new-note', [NoteController::class, 'store']);
+    Route::get('/', [NoteController::class, 'index']);
+    Route::get('/{note:slug}', [NoteController::class, 'show'])->name('notes.show');
 });
 
 Route::prefix('subjects')->group(function(){
