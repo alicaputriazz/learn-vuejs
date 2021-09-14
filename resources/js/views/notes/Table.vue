@@ -8,6 +8,7 @@
                     <th>Title</th>
                     <th>Subject</th>
                     <th>Published</th>
+                    <td>Action</td>
                 </tr>
             </thead>
             <tr v-for="note in notes" :key="note.id">
@@ -22,6 +23,15 @@
                 </td>
                 <td>{{ note.subject }}</td>
                 <td>{{ note.published }}</td>
+                <td>
+                    <router-link
+                        :to="{
+                            name: 'notes.edit',
+                            params: { noteSlug: note.slug }
+                        }"
+                        >Edit</router-link
+                    >
+                </td>
             </tr>
         </table>
     </div>
@@ -38,7 +48,6 @@ export default {
     mounted() {
         axios.get("/api/notes").then(response => {
             this.notes = response.data.data;
-            console.log(response.data.data);
         });
     }
 };
