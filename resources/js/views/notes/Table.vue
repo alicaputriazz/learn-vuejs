@@ -8,7 +8,7 @@
                     <th>Title</th>
                     <th>Subject</th>
                     <th>Published</th>
-                    <td>Action</td>
+                    <td colspan="2" class="text-center">Action</td>
                 </tr>
             </thead>
             <tr v-for="note in notes" :key="note.id">
@@ -32,13 +32,20 @@
                         >Edit</router-link
                     >
                 </td>
+                <td>
+                    <DeleteNote :endpoint="note.slug" />
+                </td>
             </tr>
         </table>
     </div>
 </template>
 
 <script>
+import DeleteNote from "./Delete.vue";
 export default {
+    components: {
+        DeleteNote
+    },
     data() {
         return {
             notes: []
