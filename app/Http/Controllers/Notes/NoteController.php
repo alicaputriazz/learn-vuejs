@@ -3,11 +3,23 @@
 namespace App\Http\Controllers\Notes;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\NoteResource;
 use App\Models\Note;
 use App\Models\Subject;
 
 class NoteController extends Controller
 {
+    public function index()
+    {
+        $notes = Note::with('subject')->latest()->get();
+        return NoteResource::collection($notes);
+    }
+
+    public function show(Subject $subject, Note $note)
+    {
+        return new NoteResource($note);
+    }
+
     public function store()
     {
         request()->validate([
