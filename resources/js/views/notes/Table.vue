@@ -6,13 +6,13 @@
             <thead>
                 <tr>
                     <th>Title</th>
-                    <th>Subject</th>
-                    <th>Published</th>
-                    <td colspan="2" class="text-center">Action</td>
+                    <th class="text-center">Subject</th>
+                    <th class="text-center">Published</th>
+                    <th class="text-center">Action</th>
                 </tr>
             </thead>
             <tr v-for="note in notes" :key="note.id">
-                <td>
+                <td class="align-middle ">
                     <router-link
                         :to="{
                             name: 'notes.show',
@@ -21,18 +21,17 @@
                         >{{ note.title }}</router-link
                     >
                 </td>
-                <td>{{ note.subject }}</td>
-                <td>{{ note.published }}</td>
-                <td>
+                <td class="align-middle text-center">{{ note.subject }}</td>
+                <td class="align-middle text-center">{{ note.published }}</td>
+                <td class="text-center">
                     <router-link
                         :to="{
                             name: 'notes.edit',
                             params: { noteSlug: note.slug }
                         }"
+                        class="btn btn-warning"
                         >Edit</router-link
                     >
-                </td>
-                <td>
                     <DeleteNote :endpoint="note.slug" />
                 </td>
             </tr>

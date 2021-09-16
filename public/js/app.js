@@ -2432,6 +2432,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["endpoint"],
   methods: {
@@ -2769,7 +2771,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Delete_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Delete.vue */ "./resources/js/views/notes/Delete.vue");
-//
 //
 //
 //
@@ -22971,9 +22972,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("button", { ref: "deleteNote", on: { click: _vm.destroyNote } }, [
-    _vm._v("Delete")
-  ])
+  return _c(
+    "button",
+    {
+      ref: "deleteNote",
+      staticClass: "btn btn-danger ml-2",
+      on: { click: _vm.destroyNote }
+    },
+    [_vm._v("\n    Delete\n")]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -23242,6 +23249,7 @@ var render = function() {
           return _c("tr", { key: note.id }, [
             _c(
               "td",
+              { staticClass: "align-middle " },
               [
                 _c(
                   "router-link",
@@ -23259,16 +23267,22 @@ var render = function() {
               1
             ),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(note.subject))]),
+            _c("td", { staticClass: "align-middle text-center" }, [
+              _vm._v(_vm._s(note.subject))
+            ]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(note.published))]),
+            _c("td", { staticClass: "align-middle text-center" }, [
+              _vm._v(_vm._s(note.published))
+            ]),
             _vm._v(" "),
             _c(
               "td",
+              { staticClass: "text-center" },
               [
                 _c(
                   "router-link",
                   {
+                    staticClass: "btn btn-warning",
                     attrs: {
                       to: {
                         name: "notes.edit",
@@ -23277,12 +23291,12 @@ var render = function() {
                     }
                   },
                   [_vm._v("Edit")]
-                )
+                ),
+                _vm._v(" "),
+                _c("DeleteNote", { attrs: { endpoint: note.slug } })
               ],
               1
-            ),
-            _vm._v(" "),
-            _c("td", [_c("DeleteNote", { attrs: { endpoint: note.slug } })], 1)
+            )
           ])
         })
       ],
@@ -23299,13 +23313,11 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Title")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Subject")]),
+        _c("th", { staticClass: "text-center" }, [_vm._v("Subject")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Published")]),
+        _c("th", { staticClass: "text-center" }, [_vm._v("Published")]),
         _vm._v(" "),
-        _c("td", { staticClass: "text-center", attrs: { colspan: "2" } }, [
-          _vm._v("Action")
-        ])
+        _c("th", { staticClass: "text-center" }, [_vm._v("Action")])
       ])
     ])
   }

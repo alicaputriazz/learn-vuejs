@@ -71,9 +71,6 @@
 
 <script>
 export default {
-<<<<<<< HEAD
-    name: "Create Post"
-=======
     name: "createNewNotes",
     data() {
         return {
@@ -119,7 +116,6 @@ export default {
             }
         }
     }
->>>>>>> dc7858987afe60d2535fd759c51f6c658aa64183
 };
 </script>
 
